@@ -177,6 +177,10 @@ void ws2812_i2s_update(ws2812_pixel_t *pixels, pixeltype_t type)
     uint16_t *p_dma_buf = dma_buffer;
 
     for (uint32_t i = 0; i < (dma_buffer_size / type); i++) {
+        // WS2812 GRB
+        // ws2811 christmas RGB
+        // ws2811 strip BRG
+
         // green -> red ws2811
         *p_dma_buf++ =  bitpatterns[pixels[i].red & 0x0F];
         *p_dma_buf++ =  bitpatterns[pixels[i].red >> 4];
