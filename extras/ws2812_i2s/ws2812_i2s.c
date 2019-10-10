@@ -182,16 +182,16 @@ void ws2812_i2s_update(ws2812_pixel_t *pixels, pixeltype_t type)
         // ws2811 strip BRG
 
         // green -> red -> blue ws2811
-        *p_dma_buf++ =  bitpatterns[pixels[i].blue & 0x0F];
-        *p_dma_buf++ =  bitpatterns[pixels[i].blue >> 4];
+        *p_dma_buf++ =  bitpatterns[pixels[i].green & 0x0F];
+        *p_dma_buf++ =  bitpatterns[pixels[i].green >> 4];
 
         // red -> green -> red ws2811
         *p_dma_buf++ =  bitpatterns[pixels[i].red & 0x0F];
         *p_dma_buf++ =  bitpatterns[pixels[i].red >> 4];
 
         // blue -> blue -> green
-        *p_dma_buf++ =  bitpatterns[pixels[i].green & 0x0F];
-        *p_dma_buf++ =  bitpatterns[pixels[i].green >> 4];
+        *p_dma_buf++ =  bitpatterns[pixels[i].blue & 0x0F];
+        *p_dma_buf++ =  bitpatterns[pixels[i].blue >> 4];
         
         if(type == PIXEL_RGBW) {
           // white
